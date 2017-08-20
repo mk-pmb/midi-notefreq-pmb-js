@@ -48,10 +48,6 @@ testFreq('F#9', 0.72430607743638, 12345.6789);
 ```
 <!--/include-->
 
-```bash
-$ midi-notefreq-pmb foo
-bar
-```
 
 
 <!--#toc stop="scan" -->
