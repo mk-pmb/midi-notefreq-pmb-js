@@ -28,6 +28,9 @@ function floatAlmostEqual(a, b) {
   testNote('A5',   81,    880.0);
   testNote('G9',  127,  12543.853951415975);
 
+  equal(mnf.sciUK2midiNote(['C-1', 'C4', 'A4', 'A3', 'A5', 'G9']),
+                           [   0,   60,   69,   57,   81,  127 ]);
+
   function testFreq(noteName, offset, freqHz) {
     var expectMidiNote = mnf.sciUK2midiNote(noteName) + offset;
     equal(mnf.freqHz2midiNote(freqHz), expectMidiNote);

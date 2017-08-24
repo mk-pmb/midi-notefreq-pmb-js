@@ -11,7 +11,10 @@ if (!log2) {
   }());
 }
 
-mnf.sciCustom2midiNote = function (dict, note, sciOctave) {
+mnf.sciCustom2midiNote = function sci2midi(dict, note, sciOctave) {
+  if (note.map) {
+    return note.map(function (n) { return sci2midi(dict, n, sciOctave); });
+  }
   if (sciOctave !== +sciOctave) {
     note = note.split(/(\-?\d+)$/);
     sciOctave = (+(note[1]) || 0);

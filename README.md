@@ -19,7 +19,7 @@ from [test.usage.js](test.usage.js):
 
 <!--#include file="test.usage.js" start="  //#u" stop="  //#r"
   outdent="  " code="javascript" -->
-<!--#verbatim lncnt="26" -->
+<!--#verbatim lncnt="29" -->
 ```javascript
 var mnf = require('midi-notefreq-pmb');
 
@@ -35,6 +35,9 @@ testNote('A4',   69,    440.0);
 testNote('A3',   57,    220.0);
 testNote('A5',   81,    880.0);
 testNote('G9',  127,  12543.853951415975);
+
+equal(mnf.sciUK2midiNote(['C-1', 'C4', 'A4', 'A3', 'A5', 'G9']),
+                         [   0,   60,   69,   57,   81,  127 ]);
 
 function testFreq(noteName, offset, freqHz) {
   var expectMidiNote = mnf.sciUK2midiNote(noteName) + offset;
