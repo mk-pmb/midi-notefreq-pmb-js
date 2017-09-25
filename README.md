@@ -19,13 +19,14 @@ from [test.usage.js](test.usage.js):
 
 <!--#include file="test.usage.js" start="  //#u" stop="  //#r"
   outdent="  " code="javascript" -->
-<!--#verbatim lncnt="29" -->
+<!--#verbatim lncnt="30" -->
 ```javascript
 var mnf = require('midi-notefreq-pmb');
 
 function testNote(noteName, expectMidiNote, expectFreqHz) {
   var midiNote = mnf.sciUK2midiNote(noteName);
   equal(midiNote, expectMidiNote);
+  equal(mnf.midiNote2sciUK(expectMidiNote), noteName);
   equal(mnf.midiNote2freqHz(midiNote), expectFreqHz);
   equal(mnf.freqHz2midiNote(expectFreqHz), expectMidiNote);
 }

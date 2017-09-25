@@ -1,5 +1,5 @@
 { "name": "midi-notefreq-pmb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Calculate frequency from MIDI note number and vice versa.",
   "keywords": [ "frequency", "midi", "note" ],
 
@@ -17,6 +17,7 @@
   "private": false, "license": "ISC",
 
   "main": "freq.js",
+  "bin": "cli.js",
   "scripts": { "test": "nodejs test.usage.js" },
   "directories": { "test": "test" },
 

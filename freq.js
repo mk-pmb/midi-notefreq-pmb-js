@@ -24,6 +24,16 @@ mnf.sciCustom2midiNote = function sci2midi(dict, note, sciOctave) {
   return (note >= 0 ? (note + ((sciOctave + 1) * 12)) : null);
 };
 
+mnf.midiNote2sciCustom = function midi2sci(dict, midiNote) {
+  if (midiNote.map) {
+    return midiNote.map(function (n) { return midi2sci(dict, n); });
+  }
+  var w = dict.length, n = dict[midiNote % w], o;
+  if (!n) { return false; }
+  o = Math.floor(midiNote / w) - 1;
+  return n + String(o);
+};
+
 mnf.makeNoteNamesDict = function (names) {
   var notes = [];
   names.replace(/[A-Z]#?/g, function (n) {
@@ -37,6 +47,9 @@ mnf.makeNoteNamesDict = function (names) {
 mnf.noteNamesUK = mnf.makeNoteNamesDict('CC#DD#EFF#GG#AA#B');
 mnf.uk = mnf.sciUK2midiNote = function (name, sciOctave) {
   return mnf.sciCustom2midiNote(mnf.noteNamesUK, name, sciOctave);
+};
+mnf.ku = mnf.midiNote2sciUK = function (midiNote) {
+  return mnf.midiNote2sciCustom(mnf.noteNamesUK, midiNote);
 };
 
 mnf.refMidiNote = mnf.sciUK2midiNote('A', 4);

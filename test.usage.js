@@ -18,6 +18,7 @@ function floatAlmostEqual(a, b) {
   function testNote(noteName, expectMidiNote, expectFreqHz) {
     var midiNote = mnf.sciUK2midiNote(noteName);
     equal(midiNote, expectMidiNote);
+    equal(mnf.midiNote2sciUK(expectMidiNote), noteName);
     equal(mnf.midiNote2freqHz(midiNote), expectFreqHz);
     equal(mnf.freqHz2midiNote(expectFreqHz), expectMidiNote);
   }
